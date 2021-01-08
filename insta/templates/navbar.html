@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-white bg-white static-top" style="background-color: white; margin-bottom: 8%">
+  <div class="container">
+
+      <a  href="{%url 'welcome'%}">
+        <img id="panelpic" src="https://res.cloudinary.com/auca/image/upload/v1609954424/insta_pjk0hk.png" alt="instagram logo on nav-bar " style="width:120px; ">
+        
+      </a>
+
+      <form action="{% url 'searchs'%}" class="search text-center" style="margin-top: 2%; margin-left:5%;">
+        <input type="text" class="input-sm form-control" name="username"
+        placeholder="Search">
+      </form>
+
+      <div class="account">
+
+          <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'myprofile'%}" ><i class="fa fa-user"  style="font-size:26px;padding-top: 14%; color: black;"></i></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'upload'%}" ><i class="fa fa-camera" style="font-size:26px;padding-top: 14%; color: black;"></i></a>
+            </li>
+                {% if user.is_authenticated %}
+                <div class="dropdown" style="margin-top: 4%">
+                    <a class="down" data-toggle="dropdown"><i class="fa fa-heart" style="font-size:26px;padding-top: 14%; color: black;"></i></a>
+                    <div class="dropdown-menu">
+                        
+                      <a class="dropdown-item" href="/accounts/password/change" >Change Password</a>
+                      <a class="dropdown-item" href="/logout">Logout</a>                    
+                    </div>
+                  </div>            
+              {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="/accounts/login" >Login</a>
+              </li>
+            </ul>
+          {% endif %}
+        </div>
+        
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>

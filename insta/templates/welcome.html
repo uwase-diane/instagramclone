@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+<style>
+    .profile_image {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="container" >      
+
+  {% for images in all_images %}
+    <div class="card" style="width: 35rem; margin-top: 6%; margin-left: 20%; ">  
+            {% if images.profile%}
+            <span style="margin-bottom: 3%;"><img src="{{images.profile.profile_photo.url}}" class="img-responsive profile_image" style="margin-right: 5%; margin-left: 3%; margin-top: 3%">
+                <strong><a href="{% url 'othersprofile' images.user.id %}" style="color: black">{{ images.user }}</a></strong></span>
+            {% endif %}
+    <img src="{{images.image.url}}" height="400" class="img-responsive" alt="Image" data-toggle="modal" data-target="#{{images.id}}">   
+    <a href="{% url 'like' images.id%}"><img src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-68-512.png" style="margin-bottom:-2%; margin-right:100%"  width=40></a>
+        <p><strong>{{images.likes}} likes</strong></p>
+
+    <div class="card-body">
+        <h5> {{images.image_caption}} </h5>
+        <h5> <small>{{images.date|timesince}}</small> </h5>
+     <hr>   
+        {% for comments in images.comments_set.all %}
+       <span><p><strong style="margin-right: 2%">{{ my_profile.user }}</strong>{{comments.comment}}</p></span>
+        {% endfor %}
+        <a href="{%url 'comment' images.id%}" class="btn btn-default">Comment</a>
+    </div>
+    </div>
+    {% endfor %}   
+</div>
+{% endblock %}

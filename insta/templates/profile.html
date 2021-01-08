@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    .theprofile {
+    float: left;
+    width: calc(33.333% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+}
+</style>
+<div class="container">
+<div class="row">
+    <div class="col-md-1">
+        <div class="profile" style="margin-top: -7%">
+                <img src="{{my_profile.profile_photo.url}}" class="img-responsive avatar">
+        </div>
+    </div>
+    <div class="col-md-11">
+    <div class="imagecaption" style="margin-left: 15%">
+            <h5><strong>{{my_profile.user}}</strong></h5>
+            <h4 style="font-size: 17px;"><strong>{{profi_images|length}}</strong> Post{{profi_images|pluralize}} <strong>{{followers|length}}</strong> Followers{{followers|pluralize}} <strong>{{following|length}}</strong> Following{{following|pluralize}}</h4>
+                <h5>{% autoescape on %} 
+                        {{my_profile.bio| safe}} 
+                        {% endautoescape %}</h5>
+                        <a class="btn btn-sm" style="background-color: #FF6316;color: white;" href="{%url 'edit'%}" >Add profile</a>
+
+        </div>
+    </div>
+</div>
+<hr>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: 3%; margin-left: 3%;margin-right:3%">
+    {% for user in profi_images %}
+        <div class="col-md-4" style="margin-top: 3%; ">   
+        <img src="{{user.image.url}}" height="200" height="200" class="img-responsive" alt="Image">
+        </div>
+    {% endfor %}
+</div> 
+</div>
+{% endblock %}
