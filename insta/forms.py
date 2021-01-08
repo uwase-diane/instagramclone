@@ -1,21 +1,23 @@
 from django import forms
-from .models import Profile,Image,Comment
+from .models import Profile,Image,Comments
 
-class ProfileForm(forms.ModelForm):
+class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['profilepic','bio']
-        exclude = ['user']
+        exclude = ['user', 'date', 'firstname', 'lastname']
+        
 
-class ImageForm(forms.ModelForm):
+class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ('image','caption')
+        exclude = ['image_name', 'profile_pic','date','user', 'profile', 'likes']
+      
 
-class CommentForm(forms.ModelForm):
+class commentForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ['comment']
+        model = Comments
+        exclude = ['commented_image', 'posted_by','profile']
+       
               
 
 
