@@ -22,12 +22,12 @@
       <div class="account">
 
           <ul class="nav justify-content-end">
-              <li class="nav-item">
+              <li class="nav-item" style="margin: 20px"></li>
                 <a class="nav-link" href="{%url 'myprofile'%}" ><i class="fa fa-user"  style="font-size:26px;padding-top: 14%; color: black;"></i></a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="{%url 'upload'%}" ><i class="fa fa-camera" style="font-size:26px;padding-top: 14%; color: black;"></i></a>
+                <a class="nav-link" href="{%url 'upload'%}" ><i class="fa fa-camera" style="font-size:26px;padding-top: 14%;  color: black;"></i></a>
             </li>
                 {% if user.is_authenticated %}
                 <div class="dropdown" style="margin-top: 4%">
