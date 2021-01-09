@@ -18,13 +18,13 @@
 </head>
 
 <body>
-<div class="container" style="margin-top:5%">
+<div class="container" style="margin-top:5%; background-image: url(https://res.cloudinary.com/auca/image/upload/v1604870818/images_qbzayi.png)">
 
   <form  action="{%url 'comment' image_id%}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
+    <input type="submit" class="btn btn-lg" style="background-color: #FF6316;color:white;" value="Post">
   </form>
 
    {% block scripts %}
