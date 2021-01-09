@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class TestProfile(TestCase):
     def setUp(self):
 
-        self.profile_test = Profile(id = 1, name = 'image', profilepic = 'pic1.png', bio = 'happy new year', user = self.user)
+        self.profile_test = Profile(id = 1, name = 'image', profilepic = 'books.png', bio = 'happy new year', user = self.user)
 
         def test_instance(self):s
             self.assertTrue(isinstance(self.profile_test, Profile))
