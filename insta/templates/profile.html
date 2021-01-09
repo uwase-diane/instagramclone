@@ -33,10 +33,10 @@
        
             <div class="post-details mt-3 mb-3">
                 <span class="mr-5"><strong>{{profi_images|length}}</strong> Posts</span>
-                <span class="mr-5"> <strong>{{followers|length}}</strong> followers</span>
-                <span class="mr-5"> <strong>{{following|length}}</strong> following</span>
+                <span class="mr-5"> <strong>{{followers|length}}</strong> Followers</span>
+                <span class="mr-5"> <strong>{{following|length}}</strong> Following</span>
             </div>
-                <h5>{% autoescape on %} 
+                <h5 style="font-size: 15px;">{% autoescape on %} 
                         {{my_profile.bio| safe}} 
                         {% endautoescape %}</h5>
                         
@@ -48,10 +48,10 @@
 </div>
 
 <div class="container">
-    <div class="row" style="margin-top: 3%; margin-left: 3%;margin-right:3%">
+    <div class="row" style="margin-top: 3%; margin-left: 3%;">
     {% for user in profi_images %}
-        <div class="col-md-4" style="margin-top: 3%; ">   
-        <img src="{{user.image.url}}" height="200" height="200" class="img-responsive" alt="Image">
+        <div class="card col-md-4" style="margin-top:-1%;">   
+        <img src="{{user.image.url}}" width="100%" height="100%" class="img-responsive" alt="Image">
         </div>
     {% endfor %}
 </div> 
