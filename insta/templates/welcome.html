@@ -20,9 +20,9 @@
                 <strong><a href="{% url 'othersprofile' images.user.id %}" style="color: black">{{ images.user }}</a></strong></span>
             {% endif %}
     <img src="{{images.image.url}}" height="400" class="img-responsive" alt="Image" data-toggle="modal" data-target="#{{images.id}}">   
-    <a href="{% url 'like' images.id%}"><img src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-68-512.png" style="margin-bottom:-2%; margin-right:100%"  width=40></a>
-        <p><strong>{{images.likes}} likes</strong></p>
-
+    <a href="{% url 'like' images.id%}"><img src="https://cdn2.iconfinder.com/data/icons/instagram-ui/48/jee-68-512.png" style="margin-bottom:-2%; margin-right:100%"  width=40></a><p>{{images.likes}}</p>
+   
+    
     <div class="card-body">
         <h5> {{images.image_caption}} </h5>
         <h5> <small>{{images.date|timesince}}</small> </h5>
