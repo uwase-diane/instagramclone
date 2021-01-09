@@ -28,12 +28,19 @@
     </div>
     <div class="col-md-11">
     <div class="imagecaption" style="margin-left: 15%">
+        
             <h5><strong>{{my_profile.user}}</strong></h5>
-            <h4 style="font-size: 17px;"><strong>{{profi_images|length}}</strong> Post{{profi_images|pluralize}} <strong>{{followers|length}}</strong> Followers{{followers|pluralize}} <strong>{{following|length}}</strong> Following{{following|pluralize}}</h4>
+            <a class="btn btn-sm" style="background-color: #FF6316;color: white;" href="{%url 'edit'%}" >Add profile</a>
+       
+            <div class="post-details mt-3 mb-3">
+                <span class="mr-5"><strong>{{profi_images|length}}</strong> Posts</span>
+                <span class="mr-5"> <strong>{{followers|length}}</strong> followers</span>
+                <span class="mr-5"> <strong>{{following|length}}</strong> following</span>
+            </div>
                 <h5>{% autoescape on %} 
                         {{my_profile.bio| safe}} 
                         {% endautoescape %}</h5>
-                        <a class="btn btn-sm" style="background-color: #FF6316;color: white;" href="{%url 'edit'%}" >Add profile</a>
+                        
 
         </div>
     </div>
